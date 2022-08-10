@@ -32,6 +32,12 @@ class Despesas implements \JsonSerializable
      */
     private $data;
 
+    /**
+     * @ORM\ManyToOne(targetEntity=Categoria::class, inversedBy="despesas")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $categoria;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -80,6 +86,19 @@ class Despesas implements \JsonSerializable
             'descricao' => $this->getDescricao(),
             'valor' => $this->getValor(),
             'data' => $this->getData()->format('m/d/Y'),
+            'categoria' => $this->getCategoria()->getNome(),
         ];
+    }
+
+    public function getCategoria(): ?Categoria
+    {
+        return $this->categoria;
+    }
+
+    public function setCategoria(?Categoria $categoria): self
+    {
+        $this->categoria = $categoria;
+
+        return $this;
     }
 }

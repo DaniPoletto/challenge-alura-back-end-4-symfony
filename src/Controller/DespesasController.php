@@ -121,6 +121,10 @@ class DespesasController extends AbstractController
 
         $despesasExistente->setDescricao($despesasEnviado->getDescricao()); 
 
+        $dadoEmJson = json_decode($corpoRequisicao);
+        if (isset($dadoEmJson->id_categoria))
+            $despesasExistente->setCategoria($despesasEnviado->getCategoria()); 
+
         $this->entityManager->flush();
 
         return new JsonResponse($despesasExistente);
