@@ -5,22 +5,22 @@ Projeto desenvolvido durante Challenge da Alura usando [Symfony 5.4](https://sym
 ## Rotas
 
 ### Receitas
-| Rota | Método | Descrição | BODY PARAMS | 
-| --- | --- | --- | --- |
-| /receitas | POST | Cadastra uma receita | <pre> {<br> "descricao": "Lanche",<br> "valor": 10.50,<br> "data": "2022-08-04"<br>} </pre> |
-| /receitas | GET | Retorna todas as receitas | - |
-| /receitas/{id} | GET | Retorna receita por id | - |
-| /receitas/{id} | PUT | Atualiza receita por id | <pre> {<br> "descricao": "Lanche",<br> "valor": 10.50,<br> "data": "2022-08-04"<br>} </pre> |
-| /receitas/{id} | DELETE | Remove receita por id | - |
+| Rota | Método | Descrição | BODY PARAMS | QUERY PARAMS |
+| --- | --- | --- | --- | --- |
+| /receitas | POST | Cadastra uma receita | <pre> {<br> "descricao": "Lanche",<br> "valor": 10.50,<br> "data": "2022-08-04"<br>} </pre> | - |
+| /receitas | GET | Retorna todas as receitas | - | descricao (opcional) |
+| /receitas/{id} | GET | Retorna receita por id | - | - |
+| /receitas/{id} | PUT | Atualiza receita por id | <pre> {<br> "descricao": "Lanche",<br> "valor": 10.50,<br> "data": "2022-08-04"<br>} </pre> | - |
+| /receitas/{id} | DELETE | Remove receita por id | - | - |
 
 ### Despesas
-| Rota | Método | Descrição | BODY PARAMS | 
-| --- | --- | --- | --- |
-| /despesas | POST | Cadastra uma despesa |  <pre> {<br> "descricao": "Lanche",<br> "valor": 10.50,<br> "data": "2022-08-04"<br>} </pre> |
-| /despesas | GET | Retorna todas as despesas | - |
-| /despesas/{id} | GET | Retorna despesas por id | - |
-| /despesas/{id} | PUT | Atualiza despesa por id |  <pre> {<br> "descricao": "Lanche",<br> "valor": 10.50,<br> "data": "2022-08-04"<br>} </pre> |
-| /despesas/{id} | DELETE | Remove despesa por id | - |
+| Rota | Método | Descrição | BODY PARAMS | QUERY PARAMS |
+| --- | --- | --- | --- | --- |
+| /despesas | POST | Cadastra uma despesa |  <pre> {<br> "descricao": "Lanche",<br> "valor": 10.50,<br> "data": "2022-08-04",<br> "id_categoria": 1<br>} </pre> O campo id_categoria é opcional | - |
+| /despesas | GET | Retorna todas as despesas | - | descricao (opcional) |
+| /despesas/{id} | GET | Retorna despesas por id | - | - |
+| /despesas/{id} | PUT | Atualiza despesa por id |  <pre> {<br> "descricao": "Lanche",<br> "valor": 10.50,<br> "data": "2022-08-04",<br> "id_categoria": 1<br>} </pre> O campo id_categoria é opciona | - |
+| /despesas/{id} | DELETE | Remove despesa por id | - | - |
 
 ### Para criar um projeto no symfony para api
 ```
