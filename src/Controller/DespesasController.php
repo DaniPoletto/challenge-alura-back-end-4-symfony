@@ -65,9 +65,14 @@ class DespesasController extends AbstractController
     /**
      * @Route("/despesas", methods={"GET"})
      */
-    public function buscarTodos() : Response
+    public function buscarTodos(Request $request) : Response
     {
-        $despesasList  = $this->despesasRepository->findAll();
+        $descricao = $request->query->get('descricao');
+        if($descricao!="") {
+            $despesasList = $this->despesasRepository->findByDescricao($descricao);
+        } else {
+            $despesasList  = $this->despesasRepository->findAll();
+        }
 
         return new JsonResponse($despesasList);
     }
