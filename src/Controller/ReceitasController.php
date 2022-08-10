@@ -64,9 +64,14 @@ class ReceitasController extends AbstractController
     /**
      * @Route("/receitas", methods={"GET"})
      */
-    public function buscarTodos() : Response
+    public function buscarTodos(Request $request) : Response
     {
-        $receitasList  = $this->receitasRepository->findAll();
+        $descricao = $request->query->get('descricao');
+        if($descricao!="") {
+            $receitasList = $this->receitasRepository->findByDescricao($descricao);
+        } else {
+            $receitasList  = $this->receitasRepository->findAll();
+        }
 
         return new JsonResponse($receitasList);
     }

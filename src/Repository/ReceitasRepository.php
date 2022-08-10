@@ -53,20 +53,19 @@ class ReceitasRepository extends ServiceEntityRepository
                     ->getSingleScalarResult();
     }
 
-//    /**
-//     * @return Receitas[] Returns an array of Receitas objects
-//     */
-//    public function findByExampleField($value): array
-//    {
-//        return $this->createQueryBuilder('r')
-//            ->andWhere('r.exampleField = :val')
-//            ->setParameter('val', $value)
-//            ->orderBy('r.id', 'ASC')
-//            ->setMaxResults(10)
-//            ->getQuery()
-//            ->getResult()
-//        ;
-//    }
+   /**
+    * @return Receitas[] Returns an array of Receitas objects
+    */
+   public function findByDescricao($value): array
+   {
+       return $this->createQueryBuilder('r')
+           ->andWhere('r.descricao LIKE :val')
+           ->setParameter('val', '%'.$value."%")
+           ->orderBy('r.id', 'ASC')
+           ->getQuery()
+           ->getResult()
+       ;
+   }
 
 //    public function findOneBySomeField($value): ?Receitas
 //    {
