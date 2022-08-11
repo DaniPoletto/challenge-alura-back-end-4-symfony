@@ -9,6 +9,7 @@ Projeto desenvolvido durante Challenge da Alura usando [Symfony 5.4](https://sym
 | --- | --- | --- | --- | --- |
 | /receitas | POST | Cadastra uma receita | <pre> {<br> "descricao": "Lanche",<br> "valor": 10.50,<br> "data": "2022-08-04"<br>} </pre> | - |
 | /receitas | GET | Retorna todas as receitas | - | descricao (opcional) |
+| /receitas/{ano}/{mes} | GET | Retorna todas as receitas do mês | - | - |
 | /receitas/{id} | GET | Retorna receita por id | - | - |
 | /receitas/{id} | PUT | Atualiza receita por id | <pre> {<br> "descricao": "Lanche",<br> "valor": 10.50,<br> "data": "2022-08-04"<br>} </pre> | - |
 | /receitas/{id} | DELETE | Remove receita por id | - | - |
@@ -18,6 +19,7 @@ Projeto desenvolvido durante Challenge da Alura usando [Symfony 5.4](https://sym
 | --- | --- | --- | --- | --- |
 | /despesas | POST | Cadastra uma despesa |  <pre> {<br> "descricao": "Lanche",<br> "valor": 10.50,<br> "data": "2022-08-04",<br> "id_categoria": 1<br>} </pre> O campo id_categoria é opcional | - |
 | /despesas | GET | Retorna todas as despesas | - | descricao (opcional) |
+| /despesas/{ano}/{mes} | GET | Retorna todas as despesas do mês | - | - |
 | /despesas/{id} | GET | Retorna despesas por id | - | - |
 | /despesas/{id} | PUT | Atualiza despesa por id |  <pre> {<br> "descricao": "Lanche",<br> "valor": 10.50,<br> "data": "2022-08-04",<br> "id_categoria": 1<br>} </pre> O campo id_categoria é opciona | - |
 | /despesas/{id} | DELETE | Remove despesa por id | - | - |
