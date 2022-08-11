@@ -76,6 +76,16 @@ class ReceitasController extends AbstractController
         return new JsonResponse($receitasList);
     }
 
+    /**
+     * @Route("/receitas/{ano}/{mes}", methods={"GET"})
+     */
+    public function buscarReceitasDoMes(int $ano, int $mes) : Response
+    {
+        $receitasList  = $this->receitasRepository
+            ->findByMonthYear($ano, $mes);
+        return new JsonResponse($receitasList);
+    }
+
     public function buscaReceitas(int $id) 
     {
         $receitas = $this->receitasRepository->find($id);

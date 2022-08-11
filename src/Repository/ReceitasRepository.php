@@ -67,6 +67,23 @@ class ReceitasRepository extends ServiceEntityRepository
        ;
    }
 
+    /**
+    * @return Receitas[] Returns an array of Receitas objects
+    */
+    public function findByMonthYear($year, $month)
+    {
+        $fromTime = new \DateTime($year . '-' . $month . '-01');
+        $toTime = new \DateTime($fromTime->format('Y-m-d') . ' first day of next month');
+
+        return $this->createQueryBuilder('r')
+            ->where('r.data >= :fromTime')
+            ->andWhere('r.data < :toTime')
+            ->setParameter('fromTime', $fromTime)
+            ->setParameter('toTime', $toTime)
+            ->getQuery()
+            ->getResult();
+    }
+
 //    public function findOneBySomeField($value): ?Receitas
 //    {
 //        return $this->createQueryBuilder('r')
