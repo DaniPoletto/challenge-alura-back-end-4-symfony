@@ -77,6 +77,16 @@ class DespesasController extends AbstractController
         return new JsonResponse($despesasList);
     }
 
+    /**
+     * @Route("/despesas/{ano}/{mes}", methods={"GET"})
+     */
+    public function buscarReceitasDoMes(int $ano, int $mes) : Response
+    {
+        $despesasList  = $this->despesasRepository
+            ->findByMonthYear($ano, $mes);
+        return new JsonResponse($despesasList);
+    }
+
     public function buscaDespesas(int $id) 
     {
         $despesas = $this->despesasRepository->find($id);

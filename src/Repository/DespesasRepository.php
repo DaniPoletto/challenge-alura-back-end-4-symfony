@@ -67,6 +67,23 @@ class DespesasRepository extends ServiceEntityRepository
        ;
    }
 
+    /**
+    * @return Despesas[] Returns an array of Despesas objects
+    */
+    public function findByMonthYear($year, $month)
+    {
+        $fromTime = new \DateTime($year . '-' . $month . '-01');
+        $toTime = new \DateTime($fromTime->format('Y-m-d') . ' first day of next month');
+
+        return $this->createQueryBuilder('d')
+            ->where('d.data >= :fromTime')
+            ->andWhere('d.data < :toTime')
+            ->setParameter('fromTime', $fromTime)
+            ->setParameter('toTime', $toTime)
+            ->getQuery()
+            ->getResult();
+    }
+
 //    public function findOneBySomeField($value): ?Despesas
 //    {
 //        return $this->createQueryBuilder('d')
