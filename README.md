@@ -24,6 +24,11 @@ Projeto desenvolvido durante Challenge da Alura usando [Symfony 5.4](https://sym
 | /despesas/{id} | PUT | Atualiza despesa por id |  <pre> {<br> "descricao": "Lanche",<br> "valor": 10.50,<br> "data": "2022-08-04",<br> "id_categoria": 1<br>} </pre> O campo id_categoria é opciona | - |
 | /despesas/{id} | DELETE | Remove despesa por id | - | - |
 
+### Resumo
+| Rota | Método | Descrição | BODY PARAMS | QUERY PARAMS |
+| --- | --- | --- | --- | --- |
+| /resumo/{ano}/{mes} | GET | Retorna resumo do mês | - | - |
+
 ### Para criar um projeto no symfony para api
 ```
 composer create-project symfony/skeleton:"^5.4" challenge-alura-back-end-4
