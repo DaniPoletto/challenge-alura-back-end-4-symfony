@@ -84,6 +84,21 @@ class ReceitasRepository extends ServiceEntityRepository
             ->getResult();
     }
 
+    public function SumAmountByMonthYear($year, $month)
+    {
+        $fromTime = new \DateTime($year . '-' . $month . '-01');
+        $toTime = new \DateTime($fromTime->format('Y-m-d') . ' first day of next month');
+
+        return $this->createQueryBuilder('r')
+            ->select('sum(r.valor) as valor')
+            ->where('r.data >= :fromTime')
+            ->andWhere('r.data < :toTime')
+            ->setParameter('fromTime', $fromTime)
+            ->setParameter('toTime', $toTime)
+            ->getQuery()
+            ->getSingleScalarResult();
+    }
+
 //    public function findOneBySomeField($value): ?Receitas
 //    {
 //        return $this->createQueryBuilder('r')

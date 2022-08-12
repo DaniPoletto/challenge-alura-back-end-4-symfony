@@ -84,6 +84,38 @@ class DespesasRepository extends ServiceEntityRepository
             ->getResult();
     }
 
+    public function SumAmountByMonthYear($year, $month)
+    {
+        $fromTime = new \DateTime($year . '-' . $month . '-01');
+        $toTime = new \DateTime($fromTime->format('Y-m-d') . ' first day of next month');
+
+        return $this->createQueryBuilder('d')
+            ->select('sum(d.valor) as valor')
+            ->where('d.data >= :fromTime')
+            ->andWhere('d.data < :toTime')
+            ->setParameter('fromTime', $fromTime)
+            ->setParameter('toTime', $toTime)
+            ->getQuery()
+            ->getSingleScalarResult();
+    }
+
+    public function SumAmountByMonthYearForEachCategory($year, $month)
+    {
+        $fromTime = new \DateTime($year . '-' . $month . '-01');
+        $toTime = new \DateTime($fromTime->format('Y-m-d') . ' first day of next month');
+
+        return $this->createQueryBuilder('d')
+            ->select('c.nome, sum(d.valor) as valor')
+            ->leftJoin('d.categoria', 'c') 
+            ->where('d.data >= :fromTime')
+            ->andWhere('d.data < :toTime')
+            ->setParameter('fromTime', $fromTime)
+            ->setParameter('toTime', $toTime)
+            ->groupBy("d.categoria")
+            ->getQuery()
+            ->getResult();
+    }
+
 //    public function findOneBySomeField($value): ?Despesas
 //    {
 //        return $this->createQueryBuilder('d')
