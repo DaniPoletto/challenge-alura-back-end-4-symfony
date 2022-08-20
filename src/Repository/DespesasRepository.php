@@ -111,7 +111,7 @@ class DespesasRepository extends ServiceEntityRepository
             ->andWhere('d.data < :toTime')
             ->setParameter('fromTime', $fromTime)
             ->setParameter('toTime', $toTime)
-            ->groupBy("d.categoria")
+            ->groupBy("c.nome")
             ->getQuery()
             ->getResult();
     }
