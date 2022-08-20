@@ -1,6 +1,8 @@
 # challenge-alura-back-end-4
 
 Projeto desenvolvido durante Challenge da Alura usando [Symfony 5.4](https://symfony.com/doc/5.4/setup.html) e PHP 7.3.5. 
+## URL Base
+ > https://challenge-alura-4-2.herokuapp.com
 
 ## Rotas
 
@@ -17,17 +19,29 @@ Projeto desenvolvido durante Challenge da Alura usando [Symfony 5.4](https://sym
 ### Despesas
 | Rota | Método | Descrição | BODY PARAMS | QUERY PARAMS |
 | --- | --- | --- | --- | --- |
-| /despesas | POST | Cadastra uma despesa |  <pre> {<br> "descricao": "Lanche",<br> "valor": 10.50,<br> "data": "2022-08-04",<br> "id_categoria": 1<br>} </pre> O campo id_categoria é opcional | - |
+| /despesas | POST | Cadastra uma despesa |  <pre> {<br> "descricao": "Lanche",<br> "valor": 10.50,<br> "data": "2022-08-04",<br> "id_categoria": 1<br>} </pre> O campo id_categoria é opcional (ver ids correspondentes na tabela Categoria) | - |
 | /despesas | GET | Retorna todas as despesas | - | descricao (opcional) |
 | /despesas/{ano}/{mes} | GET | Retorna todas as despesas do mês | - | - |
 | /despesas/{id} | GET | Retorna despesas por id | - | - |
-| /despesas/{id} | PUT | Atualiza despesa por id |  <pre> {<br> "descricao": "Lanche",<br> "valor": 10.50,<br> "data": "2022-08-04",<br> "id_categoria": 1<br>} </pre> O campo id_categoria é opciona | - |
+| /despesas/{id} | PUT | Atualiza despesa por id |  <pre> {<br> "descricao": "Lanche",<br> "valor": 10.50,<br> "data": "2022-08-04",<br> "id_categoria": 1<br>} </pre> O campo id_categoria é opciona (ver ids correspondentes na tabela Categoria) | - |
 | /despesas/{id} | DELETE | Remove despesa por id | - | - |
 
 ### Resumo
 | Rota | Método | Descrição | BODY PARAMS | QUERY PARAMS |
 | --- | --- | --- | --- | --- |
 | /resumo/{ano}/{mes} | GET | Retorna resumo do mês | - | - |
+
+### Categorias possíveis
+| Nome | Id |
+| --- | --- |
+| Alimentação | 1 |
+| Saúde | 2 |
+| Moradia | 4 |
+| Transporte | 5 |
+| Educação | 6 |
+| Lazer | 7 |
+| Imprevistos | 8 |
+| Outras | 3 |
 
 ### Para criar um projeto no symfony para api
 ```
