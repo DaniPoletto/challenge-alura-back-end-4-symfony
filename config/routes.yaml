@@ -1,3 +1,62 @@
 #index:
 #    path: /
 #    controller: App\Controller\DefaultController::index
+despesas:
+  path: /despesas
+  controller: App\Controller\DespesasController::buscarTodos
+  methods:
+    - GET
+  
+despesa:
+  path: /despesas/{id}
+  controller: App\Controller\DespesasController::buscarUm
+  methods:
+    - GET
+
+remove_despesa:
+  path: /despesas/{id}
+  controller: App\Controller\DespesasController::remove
+  methods:
+    - DELETE
+  
+nova_despesa:
+  path: /despesas
+  controller: App\Controller\DespesasController::novo
+  methods:
+    - POST
+
+atualiza_despesa:
+  path: /despesas/{id}
+  controller: App\Controller\DespesasController::atualiza
+  methods:
+    - PUT
+
+receitas:
+  path: /receitas
+  controller: App\Controller\ReceitasController::buscarTodos
+  methods:
+    - GET
+  
+receita:
+  path: /receitas/{id}
+  controller: App\Controller\ReceitasController::buscarUm
+  methods:
+    - GET
+
+remove_receita:
+  path: /receitas/{id}
+  controller: App\Controller\ReceitasController::remove
+  methods:
+    - DELETE
+  
+nova_receita:
+  path: /receitas
+  controller: App\Controller\ReceitasController::novo
+  methods:
+    - POST
+
+atualiza_receita:
+  path: /receitas/{id}
+  controller: App\Controller\ReceitasController::atualiza
+  methods:
+    - PUT

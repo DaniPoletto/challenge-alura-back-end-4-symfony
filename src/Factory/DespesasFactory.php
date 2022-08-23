@@ -5,7 +5,7 @@ namespace App\Factory;
 use App\Entity\Despesas;
 use App\Repository\CategoriaRepository;
 
-class DespesasFactory
+class DespesasFactory implements EntidadeFactory
 {
     /**
      * @var CategoriaRepository
@@ -17,7 +17,7 @@ class DespesasFactory
         $this->categoriaRepository = $categoriaRepository;
     }
 
-    public function criarDespesas (string $json) : Despesas
+    public function criarEntidade(string $json) : Despesas
     {
         $dadoEmJson = json_decode($json);
 

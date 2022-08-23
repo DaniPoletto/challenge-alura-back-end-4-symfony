@@ -53,20 +53,6 @@ class DespesasRepository extends ServiceEntityRepository
                     ->getSingleScalarResult();
     }
 
-   /**
-    * @return Despesas[] Returns an array of Despesas objects
-    */
-   public function findByDescricao($value): array
-   {
-       return $this->createQueryBuilder('d')
-           ->andWhere('d.descricao LIKE :val')
-           ->setParameter('val', '%'.$value.'%')
-           ->orderBy('d.id', 'ASC')
-           ->getQuery()
-           ->getResult()
-       ;
-   }
-
     /**
     * @return Despesas[] Returns an array of Despesas objects
     */

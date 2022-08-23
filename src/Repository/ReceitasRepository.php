@@ -53,20 +53,6 @@ class ReceitasRepository extends ServiceEntityRepository
                     ->getSingleScalarResult();
     }
 
-   /**
-    * @return Receitas[] Returns an array of Receitas objects
-    */
-   public function findByDescricao($value): array
-   {
-       return $this->createQueryBuilder('r')
-           ->andWhere('r.descricao LIKE :val')
-           ->setParameter('val', '%'.$value."%")
-           ->orderBy('r.id', 'ASC')
-           ->getQuery()
-           ->getResult()
-       ;
-   }
-
     /**
     * @return Receitas[] Returns an array of Receitas objects
     */

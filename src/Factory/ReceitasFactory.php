@@ -4,9 +4,9 @@ namespace App\Factory;
 
 use App\Entity\Receitas;
 
-class ReceitasFactory
+class ReceitasFactory implements EntidadeFactory
 {
-    public function criarReceitas (string $json) : Receitas
+    public function criarEntidade(string $json) : Receitas
     {
         $dadoEmJson = json_decode($json);
 
