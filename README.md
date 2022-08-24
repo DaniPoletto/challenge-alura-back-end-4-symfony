@@ -3,10 +3,10 @@
 ## O que é um challenge
 São 4 semanas de desafios propostos pela plataforma de ensino Alura com o objetivo de praticar construindo um projeto. Toda semana são disponibilizados desafios e o aluno deve usar o material de apoio fornecido a cada semana para resolver o desafio proposto. 
 
-## Projeto
+### Projeto
 Essa edição tem como objetivo construir uma api de controle financeiro. 
 
-## Desafios de cada semana
+### Desafios de cada semana
 <b>1ª semana</b> - CRUD de despesas e receitas e testes de api utilizando Postman
 
 <b>2ª semana</b> - Categorização de despesas, filtro de despesas/receitas por descrição, listagem de despesas/receitas por mês, resumo do mês e testes automatizados
