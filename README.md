@@ -65,22 +65,22 @@ O login e senha padrão são "usuario" e "teste". A autenticação é feita pass
 | Imprevistos | 8 |
 | Outras | 3 |
 
-### Instalando as dependências
+## Instalando as dependências
 ```
 composer install
 ```
 
-### Criando o banco
+## Criando o banco
 ```
 php bin\console doctrine:database:create
 ```
 
-### Rodando as migrations
+## Rodando as migrations
 ```
 php bin\console doctrine:migrations:migrate
 ```
 
-### Inicializando o servidor
+## Inicializando o servidor
 ```
 php -S localhost:8080 -t public
 ```
