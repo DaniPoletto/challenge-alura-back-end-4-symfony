@@ -1,10 +1,32 @@
-# challenge-alura-back-end-4
+# Challenge Alura Back-end 4 edição
 
-Projeto desenvolvido durante Challenge da Alura usando [Symfony 5.4](https://symfony.com/doc/5.4/setup.html) e PHP 7.3.5. 
+## O que é um challenge
+São 4 semanas de desafios propostos pela plataforma de ensino Alura com o objetivo de praticar construindo um projeto. Toda semana são disponibilizados desafios e o aluno deve usar o material de apoio fornecido a cada semana para resolver o desafio proposto. 
+
+## Projeto
+Essa edição tem como objetivo construir uma api de controle financeiro. 
+
+## Desafios de cada semana
+<b>1ª semana</b> - CRUD de despesas e receitas e testes de api utilizando Postman
+
+<b>2ª semana</b> - Categorização de despesas, filtro de despesas/receitas por descrição, listagem de despesas/receitas por mês, resumo do mês e testes automatizados
+
+<b>3ª e 4ª semana</b> - Deploy e autenticação
+
+## Tecnologias utilizadas
+[Symfony 5.4](https://symfony.com/doc/5.4/setup.html), Doctrine e PHP 7.3.5. 
+
 ## URL Base
  > https://challenge-alura-4-2.herokuapp.com
 
 ## Rotas
+
+### Autenticação
+| Rota | Método | Descrição | BODY PARAMS | QUERY PARAMS |
+| --- | --- | --- | --- | --- |
+| /login | GET | Retorna token obrigatório em todas as outras requisições | <pre>{<br>"usuario": "usuario",<br>"senha": "teste"<br>}</pre> | - |
+
+O login e senha padrão são "usuario" e "senha". A autenticação é feita passando um Bearer Token como Authorization. 
 
 ### Receitas
 | Rota | Método | Descrição | BODY PARAMS | QUERY PARAMS |
@@ -31,7 +53,7 @@ Projeto desenvolvido durante Challenge da Alura usando [Symfony 5.4](https://sym
 | --- | --- | --- | --- | --- |
 | /resumo/{ano}/{mes} | GET | Retorna resumo do mês | - | - |
 
-### Categorias possíveis
+### Categorias disponíveis
 | Nome | Id |
 | --- | --- |
 | Alimentação | 1 |
@@ -43,14 +65,31 @@ Projeto desenvolvido durante Challenge da Alura usando [Symfony 5.4](https://sym
 | Imprevistos | 8 |
 | Outras | 3 |
 
+### Instalando as dependências
+```
+composer install
+```
+
+### Criando o banco
+```
+php bin\console doctrine:database:create
+```
+
+### Rodando as migrations
+```
+php bin\console doctrine:migrations:migrate
+```
+
+### Inicializando o servidor
+```
+php -S localhost:8080 -t public
+```
+
+## Outros comandos que foram importantes para o desenvolvimento do projeto
+
 ### Para criar um projeto no symfony para api
 ```
 composer create-project symfony/skeleton:"^5.4" challenge-alura-back-end-4
-```
-
-### Para inicializar o servidor
-```
-php -S localhost:8080 -t public
 ```
 
 ### Para instalar o pacote de anotações
@@ -62,12 +101,10 @@ composer require annotation
 ```
 composer require symfony/orm-pack
 ```
-
 ### Criando o banco
 ```
 php bin\console doctrine:database:create
 ```
-
 Antes é preciso alterar as configurações no arquivo .ENV
 
 ### Instalar componente maker do Symfony
